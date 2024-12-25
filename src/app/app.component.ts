@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SampleService } from '../sample.service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'sample-app';
+  private sampleService = inject(SampleService);
+
+  constructor() {
+    this.sampleService.sayHello();
+    new SampleService().sayHello();
+
+  }
 }
